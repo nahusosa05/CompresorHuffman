@@ -5,7 +5,7 @@
 #### Huffman Compressor es una herramienta que utiliza el algoritmo de compresión de Huffman para reducir el tamaño de archivos sin pérdida de datos. Con esta aplicación, <ins>puedes comprimir y descomprimir archivos de manera eficiente</ins>, ahorrando espacio en disco y mejorando la velocidad de transferencia.
 
 ## 📥/📤 ¿Cómo usarlo?
-#### 1. Abre la aplicación haciendo doble clic en <ins>HuffmanCompressor.exe</ins> .
+#### 1. Abre la aplicación haciendo doble clic en <ins>HuffmanCompressor.jar</ins> .
 #### 2. Selecciona el archivo que deseas comprimir.
 #### 3. El programa empezara la compresión o descompresión según la <ins>extensión</ins> del archivo.
 
