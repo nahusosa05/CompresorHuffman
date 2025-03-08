@@ -1,10 +1,10 @@
-📜 Huffman Compressor - Compresor de Archivos
-Trabajo práctico hecho para la aprobación del curso de Algoritmos y Estructuras de datos en la UTN(FRBA).
+#📜 Huffman Compressor - Compresor de Archivos
+##Trabajo práctico hecho para la aprobación del curso de **Algoritmos y Estructuras** de datos en la UTN-FRBA.
 
-🗜️ ¿Qué es Huffman Compressor?
-Huffman Compressor es una herramienta que utiliza el algoritmo de compresión de Huffman para reducir el tamaño de archivos sin pérdida de datos.
+##🗜️ ¿Qué es Huffman Compressor?
+###Huffman Compressor es una herramienta que utiliza el algoritmo de compresión de Huffman para reducir el tamaño de archivos sin pérdida de datos.
 
-Con esta aplicación, puedes comprimir y descomprimir archivos de manera eficiente, ahorrando espacio en disco y mejorando la velocidad de transferencia.
+###Con esta aplicación, puedes comprimir y descomprimir archivos de manera eficiente, ahorrando espacio en disco y mejorando la velocidad de transferencia.
 
 📥/📤 ¿Cómo usarlo?
 1) Abre la aplicación haciendo doble clic en "HuffmanCompressor.exe" .
