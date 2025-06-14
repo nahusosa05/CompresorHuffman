@@ -6,8 +6,8 @@
 
 ## Modo de Uso:
 #### 1. Abrir la terminal de preferencia.
-#### 2. Ir a la ubicación `...\out\artifacts\HuffmanTP_v1_0_1_jar`.
-#### 3. Ejecutar el siguiente comando `"java -jar HuffmanTP_v1.0.1.jar"`.
+#### 2. Ir a la ubicación `.\out\artifacts\HuffmanTP_v1_0_1_jar`.
+#### 3. Ejecutar el siguiente comando `java -jar HuffmanTP_v1.0.1.jar`.
 
 ## Características principales
 #### • Compresión sin pérdida basada en el algoritmo de Huffman.
