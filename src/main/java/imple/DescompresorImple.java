@@ -53,7 +53,7 @@ public class DescompresorImple implements Descompresor{
 					    hi = hi.getLeft();
 					}
 
-					// Verifico si tuve que leer mas de un byte para sumarlo al long
+					// Verifico si tuve que leer más de un byte para sumarlo al long
 					if((longi-1) != 0 &&(longi-1) % 8 == 0){ 
 						bytesLeidos++;
 					}
