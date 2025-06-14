@@ -13,31 +13,25 @@ public class BitReaderImple implements BitReader
     private boolean eof = false;
     
     @Override
-    public void using(InputStream is)
-    {
+    public void using(InputStream is) {
         mIs = is;
         count = 8;
     }
 
     @Override
-    public int readBit()
-    {
+    public int readBit() {
         int out;
-        if(count==8)
-        {
+        if(count==8) {
             leerMIs();
-            if (eof)
-            {
+            if (eof) {
                 out = -1;
             }
-            else
-            {
+            else {
                 out=bait.charAt(count)-'0';
                 count++;
             }
         }
-        else
-        {
+        else {
             out=bait.charAt(count)-'0';
             count++;
         }
@@ -50,25 +44,20 @@ public class BitReaderImple implements BitReader
         count=8;
     }
     
-    private void leerMIs() //tuve que hacer el try pq el compilador toma posibles errores al momento de ejecutar,
-    {                      //y se ve que cuando lees archivos hay muchos errores posibles
+    private void leerMIs() {
         int r = 0;
-        try
-        {
+        try {
             r=mIs.read();
-            if (r == -1)
-            {
+            if (r == -1) {
                 eof = true;
             }
-            else
-            {
+            else {
                 bait = Integer.toString(r,2);
                 bait = String.format("%8s",bait).replace(' ','0');
                 count = 0;
             }
         }
-        catch(IOException e)
-        {
+        catch(IOException e) {
             e.printStackTrace();
         }        
     }

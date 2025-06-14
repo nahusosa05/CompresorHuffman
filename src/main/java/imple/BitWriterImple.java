@@ -5,8 +5,7 @@ import java.io.OutputStream;
 
 import huffman.def.BitWriter;
 
-public class BitWriterImple implements BitWriter 
-{
+public class BitWriterImple implements BitWriter {
     private OutputStream mOs;
     private int count = 0;
     private String bait = "";
@@ -18,41 +17,33 @@ public class BitWriterImple implements BitWriter
     }
 
     @Override
-    public void writeBit(int bit) 
-    {
+    public void writeBit(int bit) {
         bait+=bit;
         count++;
-        if (count == 8)
-        {
+        if (count == 8) {
             int b = Integer.parseInt(bait,2);
-            try
-            {
+            try {
                 mOs.write(b);
                 count = 0;
                 bait = "";
             }
-            catch(IOException e)
-            {
+            catch(IOException e) {
                 e.printStackTrace();
             }
         }
     }
         
     @Override
-    public void flush() 
-    {
-        if(count>0)
-        {
+    public void flush() {
+        if(count>0) {
             bait=String.format("%-8s",bait).replace(' ','0');
             int b=Integer.parseInt(bait,2);
-            try
-            {
+            try {
                 mOs.write(b);
                 count=0;
                 bait="";
             }
-            catch(IOException e)
-            {
+            catch(IOException e) {
                 e.printStackTrace();
             }
         }

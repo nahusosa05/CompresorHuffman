@@ -18,13 +18,11 @@ import huffman.def.HuffmanTable;
 import huffman.util.HuffmanTree;
 
 public class CompresorImple implements Compresor{
-	//private long 
-	
-	// Cuenta las veces que aparece cada byte (caracter) en un archivo. Lo devuelve en un array
+	// Cuenta las veces que aparece cada byte (carácter) en un archivo. Lo devuelve en un array
 	@Override
 	public HuffmanTable[] contarOcurrencias(String filename){
 		//creamos la tabla para contar todas las ocurrencias de los chars
-        HuffmanTable out[] = new HuffmanTable[256];
+        HuffmanTable[] out = new HuffmanTable[256];
         
         try { 
         	// abrimos el archivo a leer 
@@ -32,14 +30,15 @@ public class CompresorImple implements Compresor{
             BufferedInputStream bis = new BufferedInputStream(fis);
             
             int bait = bis.read();
-            while (bait != -1){ // recorremos el archivo
-            	
+
+            // Recorremos el archivo
+            while (bait != -1){
             	// si en ese espacio no hay nada, creamos un nuevo huffman table
                 if (out[bait] == null) { 
                     out[bait] = new HuffmanTable(); 
                     out[bait].increment(); // e incrementamos en uno su contador
                 }
-                else {	// sino, directamente incrementamos su contador
+                else {	// si no, directamente incrementamos su contador
                     out[bait].increment();
                 }
                 bait = bis.read();
@@ -70,7 +69,7 @@ public class CompresorImple implements Compresor{
 		return info;
 	}
 	
-	// Construccion del arbol
+	// Construcción del árbol
 	@Override
     public HuffmanInfo convertirListaEnArbol(List<HuffmanInfo> lista){
         while(lista.size()>1){
@@ -90,7 +89,7 @@ public class CompresorImple implements Compresor{
         return lista.get(0);
     }
 	
-	// Genera los codigos huffman segun el orden (0 izq [mayor freq], 1 derecha [menor freq])
+	// Genera los códigos huffman según el orden (0 izq [mayor freq], 1 derecha [menor freq])
 	@Override
     public void generarCodigosHuffman(HuffmanInfo root, HuffmanTable[] arr){
         HuffmanTree ht = new HuffmanTree(root);
@@ -120,12 +119,12 @@ public class CompresorImple implements Compresor{
             bt.using(bos);
             
             // creamos un map para guardar los char con sus respectivos 
-            // huffmantable(frecuencia y codigo)
+            // huffmantable (frecuencia y código)
             HashMap<Integer,HuffmanTable> hm = new HashMap<>();
             int longOriginal = 0;
             
-            // iteramos el array para obtener los huffmantable distinto de null de arr
-            // añadienlos al map y contando cada frecuencia para la long original.
+            // iteramos el array para obtener los huffmantable distinto de null de arr y los
+            // añadimos al map, contando cada frecuencia para la long original.
             for(int i = 0; i<arr.length; i++){
             	HuffmanTable ht = arr[i];
             	if(ht != null) {
@@ -135,7 +134,7 @@ public class CompresorImple implements Compresor{
             	}
             }
             
-            // escribimos las hojas de arbol con el size de los caracteres distintos
+            // escribimos las hojas de árbol con el size de los caracteres distintos
             byte hojas = (byte)hm.size();
             
             if(hojas == 256) {
@@ -147,7 +146,7 @@ public class CompresorImple implements Compresor{
             
             bytesEscritos += 1;
             
-            //for para iterar segun todas las claves del map y obtener su valor asociado(cod)
+            //for para iterar según todas las claves del map y obtener su valor asociado(cod)
             for(int key : hm.keySet()) {
             	HuffmanTable ht = hm.get(key);
             	byte codLenght = (byte)ht.getCod().length();
@@ -158,7 +157,7 @@ public class CompresorImple implements Compresor{
             	bytesEscritos += 1;
             	
             	
-            	//while para escribir el codigo huffman bit por bit
+            	//while para escribir el código huffman bit por bit
             	int i = 0;
                 while (i<codLenght){
                 	int bit = ht.getCod().charAt(i) - '0';
@@ -175,9 +174,9 @@ public class CompresorImple implements Compresor{
             }
             
             /* 
-             	escribimos longOriginal del archivo, byte por byte 
+             	Escribimos longOriginal del archivo, byte por byte
              	lo hacemos de esta manera por el orden Big-Endian. 
-             	(escribir el byte mas significativo primero y el menos significativo al final)
+             	(escribir el byte más significativo primero y el menos significativo al final)
             */            
             
             bos.write((longOriginal >> 24) & 0xFF);
