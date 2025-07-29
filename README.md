@@ -3,7 +3,7 @@
 
 ## ¿Qué es Huffman Compressor?
 #### Huffman Compressor es una herramienta que utiliza el algoritmo de compresión de Huffman para reducir el tamaño de archivos sin pérdida de datos.
-![Vista del programa](compressor-image.jpg)
+<img src="compressor-image.jpg" alt="Vista del programa" width="500"/>
 
 ## Modo de Uso:
 #### NOTA: Versión recomendada JDK 24.
